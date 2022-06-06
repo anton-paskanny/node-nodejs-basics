@@ -1,16 +1,4 @@
-//const fs = require('fs/promises');
 import fs from 'fs/promises';
-
-// async function exists (path) {  
-//     try {
-//       await fs.access(path);
-//       return true;
-//     } catch {
-//         ///throw new Error('FS operation failed');
-//         console.log('return false!!!')
-//       return false;
-//     }
-//   }
 
 export const create = async () => {
     // Write your code here
