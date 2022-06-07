@@ -26,7 +26,6 @@ export const copy = async () => {
     try {
         const filesToCopy = await readdir(sourceFolderPath);
         for (const file of filesToCopy) { 
-            console.log(file); 
             await copyFile(`${sourceFolderPath}/${file}`, `${destFolderPath}/${file}`);
         };
     } catch (e) {
