@@ -1,7 +1,10 @@
 export const parseEnv = () => {
-    for (let value in process.env) {
-        value.startsWith('RSS_') && console.log(`${value}=${process.env[value]}`);
-    }
+    const rssVariables = Object.entries(process.env).reduce((acc, [key, value]) => {
+        key.startsWith('RSS_') && acc.push(`${key}=${value}`);
+        return acc;
+    }, []);
+    
+    console.log(rssVariables.join('; '));
 };
 
 parseEnv();

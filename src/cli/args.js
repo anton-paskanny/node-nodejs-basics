@@ -1,10 +1,16 @@
 export const parseArgs = () => {
     const args = process.argv.slice(2);
 
-    for (let value of args) {
-        const valueToPrint = value.slice(2).split('=');
-        console.log(`${valueToPrint[0]} is ${valueToPrint[1]}`);
-    }
+    const res = args.reduce((acc, value, index, arr) => {
+        const valueAfterCommandKey = arr[index + 1];
+        if (value.startsWith('--') && valueAfterCommandKey) {
+            acc.push(`${value.slice(2)} is ${valueAfterCommandKey}`);
+        }
+
+        return acc;
+    }, []);
+
+    console.log(res.join(', '))
 };
 
 parseArgs();
